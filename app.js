@@ -13,10 +13,17 @@ function verificarIntento(){
         asignarTextoElemento('p', `¡Adivinaste! En ${contador} ${contador === 1 ? ' intento' : ' intentos'}` );
         document.getElementById('reiniciar').removeAttribute('disabled');
 
-    }else{
-        asignarTextoElemento('p', '¡Intenta de nuevo!');
+    }else if (numeroDeUsuario < numero_secreto){
+        asignarTextoElemento('p', '¡Muy bajo!');
         limpiarCaja();
     }
+
+    else if (numeroDeUsuario > numero_secreto){
+
+        asignarTextoElemento('p', '¡Muy alto!');
+        limpiarCaja();
+    }
+    
     contador++;
     return;
 }
